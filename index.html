@@ -1,0 +1,435 @@
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فرم‌ساز حرفه‌ای فارسی</title>
+
+    <!-- فونت‌ها و آیکون‌ها -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- استایل پروژه -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="core.js" defer> </script>
+    <script src="design.js" defer> </script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-right">
+            <div class="logo">
+                <i class="fas fa-file-alt"></i>
+                <span>فرم‌ساز حرفه‌ای</span>
+            </div>
+        </div>
+        <nav class="tabs">
+            <button class="tab active" data-tab="designer">
+                <i class="fas fa-paint-brush"></i>
+                طراح
+            </button>
+            <button class="tab" data-tab="preview">
+                <i class="fas fa-eye"></i>
+                پیش‌نمایش
+            </button>
+            <button class="tab" data-tab="themes">
+                <i class="fas fa-palette"></i>
+                تم‌ها
+            </button>
+            <button class="tab" data-tab="logic">
+                <i class="fas fa-code-branch"></i>
+                منطق
+            </button>
+            <button class="tab" data-tab="json">
+                <i class="fas fa-code"></i>
+                ویرایشگر JSON
+            </button>
+            <button class="tab" data-tab="translations">
+                <i class="fas fa-language"></i>
+                ترجمه‌ها
+            </button>
+        </nav>
+        <div class="header-actions">
+            <button class="btn-secondary" id="saveBtn">
+                <i class="fas fa-save"></i>
+                ذخیره
+            </button>
+            <button class="btn-primary" id="exportBtn">
+                <i class="fas fa-download"></i>
+                دانلود JSON
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Right Sidebar - Toolbox -->
+        <aside class="sidebar sidebar-right">
+            <div class="sidebar-header">
+                <h3><i class="fas fa-toolbox"></i> جعبه ابزار</h3>
+            </div>
+            <div class="toolbox-sections">
+                <!-- انتخاب‌گرها -->
+                <div class="toolbox-section">
+                    <h4 class="section-title">
+                        <i class="fas fa-check-circle"></i>
+                        انتخاب‌گرها
+                    </h4>
+                    <div class="toolbox-items">
+                        <div class="toolbox-item" draggable="true" data-type="radio">
+                            <i class="fas fa-dot-circle"></i>
+                            <span>دکمه رادیویی</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="checkbox">
+                            <i class="fas fa-check-square"></i>
+                            <span>چک‌باکس</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="dropdown">
+                            <i class="fas fa-caret-square-down"></i>
+                            <span>لیست کشویی</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="rating">
+                            <i class="fas fa-star"></i>
+                            <span>رتبه‌بندی</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="slider">
+                            <i class="fas fa-sliders-h"></i>
+                            <span>اسلایدر</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="boolean">
+                            <i class="fas fa-toggle-on"></i>
+                            <span>بله/خیر</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ورودی‌های متنی -->
+                <div class="toolbox-section">
+                    <h4 class="section-title">
+                        <i class="fas fa-keyboard"></i>
+                        ورودی‌های متنی
+                    </h4>
+                    <div class="toolbox-items">
+                        <div class="toolbox-item" draggable="true" data-type="text">
+                            <i class="fas fa-font"></i>
+                            <span>متن تک‌خطی</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="textarea">
+                            <i class="fas fa-align-left"></i>
+                            <span>متن چندخطی</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="number">
+                            <i class="fas fa-hashtag"></i>
+                            <span>عدد</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="email">
+                            <i class="fas fa-envelope"></i>
+                            <span>ایمیل</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="date">
+                            <i class="fas fa-calendar"></i>
+                            <span>تاریخ</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="time">
+                            <i class="fas fa-clock"></i>
+                            <span>زمان</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="phone">
+                            <i class="fas fa-phone"></i>
+                            <span>شماره تلفن</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="url">
+                            <i class="fas fa-link"></i>
+                            <span>آدرس وب</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- فیلدهای پیشرفته -->
+                <div class="toolbox-section">
+                    <h4 class="section-title">
+                        <i class="fas fa-puzzle-piece"></i>
+                        فیلدهای پیشرفته
+                    </h4>
+                    <div class="toolbox-items">
+                        <div class="toolbox-item" draggable="true" data-type="file">
+                            <i class="fas fa-upload"></i>
+                            <span>آپلود فایل</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="signature">
+                            <i class="fas fa-signature"></i>
+                            <span>امضا</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="image-picker">
+                            <i class="fas fa-images"></i>
+                            <span>انتخاب تصویر</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="ranking">
+                            <i class="fas fa-sort"></i>
+                            <span>رتبه‌بندی</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>موقعیت مکانی</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- پنل‌ها و گروه‌ها -->
+                <div class="toolbox-section">
+                    <h4 class="section-title">
+                        <i class="fas fa-layer-group"></i>
+                        پنل‌ها و گروه‌ها
+                    </h4>
+                    <div class="toolbox-items">
+                        <div class="toolbox-item" draggable="true" data-type="panel">
+                            <i class="fas fa-square"></i>
+                            <span>پنل</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="dynamic-panel">
+                            <i class="fas fa-clone"></i>
+                            <span>پنل پویا</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="matrix">
+                            <i class="fas fa-table"></i>
+                            <span>ماتریکس</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="dynamic-matrix">
+                            <i class="fas fa-th"></i>
+                            <span>ماتریکس پویا</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- المان‌های نمایشی -->
+                <div class="toolbox-section">
+                    <h4 class="section-title">
+                        <i class="fas fa-info-circle"></i>
+                        المان‌های نمایشی
+                    </h4>
+                    <div class="toolbox-items">
+                        <div class="toolbox-item" draggable="true" data-type="html">
+                            <i class="fas fa-code"></i>
+                            <span>HTML</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="image">
+                            <i class="fas fa-image"></i>
+                            <span>تصویر</span>
+                        </div>
+                        <div class="toolbox-item" draggable="true" data-type="expression">
+                            <i class="fas fa-calculator"></i>
+                            <span>عبارت محاسباتی</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Center - Design Area -->
+        <main class="design-area" id="designArea">
+            <div class="tab-content active" id="designer-tab">
+                <div class="form-container" id="formContainer">
+                    <div class="empty-state" id="emptyState" style="display: none;">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>فرم شما خالی است</h3>
+                        <p>یک المان را از جعبه ابزار بکشید یا روی دکمه زیر کلیک کنید</p>
+                        <button class="btn-primary" id="addQuestionBtn">
+                            <i class="fas fa-plus"></i>
+                            افزودن سؤال
+                        </button>
+                    </div>
+                    <div class="form-elements has-elements" id="formElements">
+      <div class="form-element" data-id="element_1756021052319_qscnfs7mx" draggable="true">
+        <div class="element-controls">
+          <button class="element-control" data-action="duplicate" data-id="element_1756021052319_qscnfs7mx">
+            <i class="fas fa-copy"></i>
+          </button>
+          <button class="element-control" data-action="delete" data-id="element_1756021052319_qscnfs7mx">
+            <i class="fas fa-trash"></i>
+          </button>
+          <button class="element-control" data-action="moveUp" data-id="element_1756021052319_qscnfs7mx">
+            <i class="fas fa-arrow-up"></i>
+          </button>
+          <button class="element-control" data-action="moveDown" data-id="element_1756021052319_qscnfs7mx">
+            <i class="fas fa-arrow-down"></i>
+          </button>
+        </div>
+        <div class="element-header">
+          <span class="element-number">1</span>
+          <span class="element-title">آدرس ایمیل</span>
+          
+        </div>
+        <div class="element-body">
+          <input type="email" class="form-input" placeholder="متن خود را وارد کنید" disabled="">
+        </div>
+      </div>
+    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="preview-tab">
+                <div class="preview-container">
+                    <div class="preview-header">
+                        <h3>پیش‌نمایش فرم</h3>
+                        <div class="preview-actions">
+                            <button class="btn-secondary" id="mobilePreview">
+                                <i class="fas fa-mobile-alt"></i>
+                                موبایل
+                            </button>
+                            <button class="btn-secondary" id="tabletPreview">
+                                <i class="fas fa-tablet-alt"></i>
+                                تبلت
+                            </button>
+                            <button class="btn-secondary active" id="desktopPreview">
+                                <i class="fas fa-desktop"></i>
+                                دسکتاپ
+                            </button>
+                        </div>
+                    </div>
+                    <div class="preview-frame" id="previewFrame"></div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="themes-tab">
+                <div class="themes-container">
+                    <h3>انتخاب تم</h3>
+                    <div class="theme-grid">
+                        <div class="theme-card active" data-theme="default">
+                            <div class="theme-preview theme-default"></div>
+                            <span>پیش‌فرض</span>
+                        </div>
+                        <div class="theme-card" data-theme="modern">
+                            <div class="theme-preview theme-modern"></div>
+                            <span>مدرن</span>
+                        </div>
+                        <div class="theme-card" data-theme="minimal">
+                            <div class="theme-preview theme-minimal"></div>
+                            <span>مینیمال</span>
+                        </div>
+                        <div class="theme-card" data-theme="dark">
+                            <div class="theme-preview theme-dark"></div>
+                            <span>تیره</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="logic-tab">
+                <div class="logic-container">
+                    <h3>قوانین و منطق شرطی</h3>
+                    <button class="btn-primary" id="addRuleBtn">
+                        <i class="fas fa-plus"></i>
+                        افزودن قانون جدید
+                    </button>
+                    <div class="rules-list" id="rulesList"></div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="json-tab">
+                <div class="json-editor-container">
+                    <div class="json-editor-header">
+                        <h3>ویرایشگر JSON</h3>
+                        <div class="json-actions">
+                            <button class="btn-secondary" id="formatJsonBtn">
+                                <i class="fas fa-indent"></i>
+                                فرمت‌بندی
+                            </button>
+                            <button class="btn-secondary" id="validateJsonBtn">
+                                <i class="fas fa-check"></i>
+                                اعتبارسنجی
+                            </button>
+                            <button class="btn-primary" id="applyJsonBtn">
+                                <i class="fas fa-check-circle"></i>
+                                اعمال تغییرات
+                            </button>
+                        </div>
+                    </div>
+                    <textarea id="jsonEditor" class="json-editor"></textarea>
+                </div>
+            </div>
+
+            <div class="tab-content" id="translations-tab">
+                <div class="translations-container">
+                    <h3>مدیریت ترجمه‌ها</h3>
+                    <div class="language-selector">
+                        <label>زبان:</label>
+                        <select id="languageSelect">
+                            <option value="fa">فارسی</option>
+                            <option value="en">English</option>
+                            <option value="ar">العربية</option>
+                        </select>
+                        <button class="btn-secondary" id="addLanguageBtn">
+                            <i class="fas fa-plus"></i>
+                            افزودن زبان
+                        </button>
+                    </div>
+                    <div class="translations-grid" id="translationsGrid"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Left Sidebar - Properties -->
+        <aside class="sidebar sidebar-left">
+            <div class="sidebar-header">
+                <h3><i class="fas fa-cog"></i> تنظیمات</h3>
+            </div>
+            <div class="properties-container" id="propertiesContainer">
+                <div class="properties-empty">
+                    <i class="fas fa-info-circle"></i>
+                    <p>یک المان را انتخاب کنید تا تنظیمات آن را ببینید</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Context Menu -->
+    <div class="context-menu" id="contextMenu">
+        <button class="context-menu-item" data-action="duplicate">
+            <i class="fas fa-copy"></i>
+            کپی کردن
+        </button>
+        <button class="context-menu-item" data-action="delete">
+            <i class="fas fa-trash"></i>
+            حذف
+        </button>
+        <button class="context-menu-item" data-action="required">
+            <i class="fas fa-asterisk"></i>
+            اجباری/اختیاری
+        </button>
+        <div class="context-menu-divider"></div>
+        <button class="context-menu-item" data-action="moveUp">
+            <i class="fas fa-arrow-up"></i>
+            انتقال به بالا
+        </button>
+        <button class="context-menu-item" data-action="moveDown">
+            <i class="fas fa-arrow-down"></i>
+            انتقال به پایین
+        </button>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Modal Template -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle"></h3>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer" id="modalFooter"></div>
+        </div>
+    </div>
+
+    <!-- اسکریپت اصلی -->
+
+</body>
+
+</html>
